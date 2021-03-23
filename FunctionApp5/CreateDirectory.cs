@@ -107,7 +107,7 @@ namespace FunctionApp5
                             // set ACLs for the file
                             IList<PathAccessControlItem> accessControlList = PathAccessControlExtensions.ParseAccessControlList("user::rwx,group::r-x,other::rw-");
                             await fileClient.SetAccessControlListAsync(accessControlList);
-                            telemetryClient.TrackEvent($"ACL created {request.FilePattern}");
+                            telemetryClient.TrackEvent($"File ACL created {request.FilePattern}");
                         }
                     }
                     else
@@ -147,7 +147,7 @@ namespace FunctionApp5
                         // set ACL for the directory
                         IList<PathAccessControlItem> accessControlList = PathAccessControlExtensions.ParseAccessControlList("user::rwx,group::r-x,other::rw-");
                         await directoryClient.SetAccessControlListAsync(accessControlList);
-                        telemetryClient.TrackEvent($"ACL created {request.FilePattern}");
+                        telemetryClient.TrackEvent($"Dir ACL created {request.FilePattern}");
                     }
                 }
 
