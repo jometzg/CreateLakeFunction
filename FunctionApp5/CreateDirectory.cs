@@ -21,7 +21,7 @@ namespace FunctionApp5
 {
     public class CreateDirectory
     {
-        // create section
+        // create section in VS2019
         string TerminateCreate;
         string CreateQueue;
         string CreateSasToken;
