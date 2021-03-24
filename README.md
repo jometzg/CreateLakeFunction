@@ -1,6 +1,6 @@
-# CreateLakeFunction
+# Create Lake Function
 
-This is an Azure function that listens to messages on a service bus queue and then uses these to build a data lake generation 2 with a structure defined in the initial message that was sent onto the service bus queue/
+This is an Azure function that listens to messages on a service bus queue and then uses these to build a data lake generation 2 with a structure defined in the initial message that was sent onto the service bus queue.
 
 ## Create Message
 A JSON message needs to be sent to the service bus queue to which the function listens.
@@ -20,7 +20,7 @@ A JSON message needs to be sent to the service bus queue to which the function l
   "FilePattern": "file16-"
 }
 ```
-In the above message it generates a tree of directories and files in the quantities shown. Note the depth.
+In the above message it generates a tree of directories and files in the quantities shown. Note the depth. At each directoty depth, it will send a service bus message to the same queue to process that directory. In this manner, it will recursively create a tree structure of the size and depth specified. 
 
 ## Number of files generated
 If the depth is 4, then:
