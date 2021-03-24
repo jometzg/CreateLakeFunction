@@ -71,6 +71,7 @@ namespace FunctionApp5
         public async Task Run([ServiceBusTrigger("datalake-create", Connection = "servicebusconnection")] Message message, ILogger log)
         {
             //telemetryClient.TrackTrace($"CreateDirectory: Message {message.MessageId} dequeued. Attempt {message.SystemProperties.DeliveryCount}");
+            // amended in Github.com
             // parse incoming CreateRequest message
             string payload = System.Text.Encoding.UTF8.GetString(message.Body);
             CreateRequest request = JsonConvert.DeserializeObject<CreateRequest>(payload);
